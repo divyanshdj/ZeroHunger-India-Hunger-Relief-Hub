@@ -17,6 +17,16 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    multiplier: 1, // Adjust this value if needed
+  });
+
+  // Optional: Update Locomotive Scroll instance when content changes
+  scroll.update();
+  
   // Accordion initialization
   const accordionItems = document.querySelectorAll(".accordion-item");
 

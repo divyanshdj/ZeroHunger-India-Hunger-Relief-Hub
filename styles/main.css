@@ -224,6 +224,13 @@ footer .input-group {
   width: 100%;
 }
 
+.footer-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .news-center{
   display: flex;
   flex-direction: column;
@@ -316,7 +323,7 @@ footer .input-group {
   z-index: 1;
 }
 
-#donate-body::after {
+#donate-body::after{
   content: "";
   position: absolute;
   left: 0;
@@ -386,6 +393,22 @@ footer .input-group {
   object-fit: contain;
 }
 
+/* Add to your main.css or a relevant stylesheet */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out; /* Adjust duration for slower animation */
+}
+
+[data-scroll] {
+  opacity: 1 !important;
+}
+
+/* Optional: Add delay for additional control */
+[data-scroll][data-scroll-delay] {
+  transition-delay: var(--scroll-delay, 1s);
+}
+
+
 
 /* Responsive styles */
 @media (max-width: 1000px) {
@@ -452,7 +475,7 @@ footer .input-group {
 @media (max-width: 540px) {
   #stats video{
     height: 200px;
-    width: 350px;
+    width: 400px;
   }
   .footer-col{
     margin-bottom: 10px;
