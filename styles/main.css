@@ -475,7 +475,7 @@ footer .input-group {
 @media (max-width: 540px) {
   #stats video{
     height: 200px;
-    width: 400px;
+    width: 350px;
   }
   .footer-col{
     margin-bottom: 10px;
