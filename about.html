@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Work - India Hunger Relief Hub</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <style>
+      .ihh-food-assistance-section,
+      .ihh-success-stories-section,
+      .ihh-partners-section {
+        background-color: #fff;
+        padding: 40px 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+      .ihh-section-title {
+        margin-bottom: 30px;
+        font-size: 2rem;
+        text-align: center;
+      }
+      .ihh-card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">India Hunger Relief Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">Our Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hunger-map.html">Hunger Map</a></li>
+                    <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gardens-farms.html">Gardens & Farms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+      <section class="ihh-hero-section text-center">
+        <h1>Our Work</h1>
+        <p>
+          We are committed to solving the problem of hunger in India. Here's how
+          we are making a difference.
+        </p>
+      </section>
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1593113630400-ea4288922497?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="First slide"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="Third slide"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1588822534638-028d5ddc07ac?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="Second slide"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="Second slide"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="d-block w-100"
+              alt="Second slide"
+            />
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <section class="ihh-food-assistance-section mt-5">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h2>Food Assistance</h2>
+            <p>
+              We are dedicated to addressing food insecurity by providing
+              nutritious meals to those in need. Through our network of food
+              banks, pantries, and community programs, we ensure that no one
+              goes hungry. Join us in our mission to create a hunger-free future
+              for all.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img
+              src="https://cdn.dribbble.com/userupload/10600309/file/original-8e4c6c1f0fd388d0367fdfa6ea04955c.jpg?resize=1504x1128"
+              class="img-fluid rounded"
+              alt="Food Assistance"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="ihh-success-stories-section">
+        <h2 class="text-center mb-4">Success Stories</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card ihh-card">
+              <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="card-img-top"
+                alt="Success Story 1"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Aarav's Journey</h5>
+                <p class="card-text">
+                  Aarav overcame food insecurity through our programs and now
+                  volunteers to help others in need.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card ihh-card">
+              <img
+                src="https://images.unsplash.com/photo-1530268729831-4b0b9e170218?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="card-img-top"
+                alt="Success Story 2"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Jay's Story</h5>
+                <p class="card-text">
+                  Jay found support through our food assistance program,
+                  transforming her life and her family's future.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card ihh-card">
+              <img
+                src="https://images.unsplash.com/photo-1489980557514-251d61e3eeb6?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="card-img-top"
+                alt="Success Story 3"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Ravi's Story</h5>
+                <p class="card-text">
+                  Ravi's family received critical food support during difficult times,
+                  allowing them to focus on rebuilding their lives.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="ihh-partners-section">
+        <h2 class="text-center mb-4">Our Partners</h2>
+        <p class="text-center">
+          We collaborate with various organizations to expand our reach and
+          impact. Together, we work towards a hunger-free India.
+        </p>
+        <div class="row text-center">
+          <div class="col-md-2 partner-img">
+            <img
+              src="https://pbs.twimg.com/profile_images/1504775748221087763/Q3xl0dYE_400x400.jpg"
+              alt="Partner 0"
+            />
+          </div>
+          <div class="col-md-2 partner-img">
+            <img
+              src="https://riseagainsthungerindia.org/wp-content/themes/rahi/assets/media/logo.jpg"
+              class="img-fluid rounded"
+              alt="Partner 1"
+            />
+          </div>
+          <div class="col-md-2 partner-img">
+            <img
+              src="https://www.feedingamerica.org/themes/custom/ts_feeding_america/images/svgs/logo-2020.svg"
+              class="img-fluid rounded"
+              alt="Partner 2"
+            />
+          </div>
+          <div class="col-md-2 partner-img">
+            <img
+              src="https://www.care.org/wp-content/uploads/2021/01/primary_logo_horizontal_min.svg"
+              class="img-fluid rounded"
+              alt="Partner 3"
+            />
+          </div>
+          <div class="col-md-2 partner-img">
+            <img
+              src="https://www.bread.org/wp-content/themes/bread/images/bread_header_logo.svg"
+              class="img-fluid rounded"
+              alt="Partner 4"
+            />
+          </div>
+          <div class="col-md-2 partner-img">
+            <img
+              src="https://www.3blmedia.com/sites/default/files/styles/5x4_l/public/videos/thumbnails/680666/thumbnail-680666_0014.png?h=5273c5c2"
+              class="img-fluid rounded"
+              alt="Partner 5"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-4 mb-md-0 text-md-left">
+                    <h5 class="mb-3">Contact Us</h5>
+                    <a href="mailto:contact@indiahungerreliefhub.org" class="text-white">contact@indiahungerreliefhub.org</a>
+                    <a href="tel:+911234567890" class="text-white">+91 12345 67890</a>
+                    <p>1234 Hunger Relief Street,</p>
+                    <p>New Delhi, India</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0 text-md-left">
+                    <h5 class="mb-3">Follow Us</h5>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="col-md-4 text-md-left">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <a href="#" class="text-white d-block">About Us</a>
+                    <a href="#" class="text-white d-block">Donate</a>
+                    <a href="#" class="text-white d-block">Volunteer</a>
+                    <a href="#" class="text-white d-block">Blog</a>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-8 mx-auto news-center">
+                    <h5 class="mb-3">Subscribe to our Newsletter</h5>
+                    <form class="form-inline justify-content-center">
+                      <div class="input-group mb-2">
+                          <input type="email" class="form-control" id="subscribeEmail" placeholder="Enter your email" required>
+                          <div class="input-group-append">
+                              <button type="submit" class="btn btn-primary">Subscribe</button>
+                          </div>
+                      </div>
+                  </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="mb-0">&copy; 2024 India Hunger Relief Hub. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

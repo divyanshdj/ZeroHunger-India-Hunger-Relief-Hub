@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hunger Map - India Hunger Relief Hub</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-0nrY9xj7A6XBovOkM0xZK5xHDVbFurysuT8w5c8RfF6lbrbCTRYdLtQ5nM7Iop7g"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <style>
+      .map-container {
+        margin-top: 30px;
+      }
+      .map-title {
+        margin-bottom: 20px;
+      }
+      .map-section {
+        margin-bottom: 50px;
+      }
+      #map {
+        height: 600px;
+        width: 100%;
+      }
+      .info-window-content {
+        text-align: center;
+      }
+      .info-window-content h6 {
+        margin: 0;
+        font-size: 16px;
+      }
+      .impact-section {
+        margin-top: 50px;
+      }
+      .impact-title {
+        margin-bottom: 30px;
+      }
+      .impact-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .impact-card-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">India Hunger Relief Hub</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Our Work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="hunger-map.html">Hunger Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="data.html">Data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gardens-farms.html">Gardens & Farms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="donate.html">Donate</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container map-container">
+      <section class="map-section">
+        <h1 class="map-title">Hunger Map</h1>
+        <p class="mb-4">
+          Explore the interactive map below to find hunger relief centers, food
+          distribution points, and other related services across India.
+        </p>
+        <div id="map"></div>
+      </section>
+      <section class="impact-section">
+        <h2 class="impact-title">Our Impact</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card impact-card mb-4">
+              <div class="card-body">
+                <h5 class="impact-card-title">Meals Provided</h5>
+                <p class="card-text">
+                  Over 1 million meals provided to those in need.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card impact-card mb-4">
+              <div class="card-body">
+                <h5 class="impact-card-title">Volunteers</h5>
+                <p class="card-text">
+                  Join our community of over 10,000 volunteers.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card impact-card mb-4">
+              <div class="card-body">
+                <h5 class="impact-card-title">Donation Centers</h5>
+                <p class="card-text">
+                  Find a donation center near you and contribute to the cause.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-5">
+      <div class="container">
+          <div class="row mb-4">
+              <div class="col-md-4 mb-md-0 text-md-left">
+                  <h5 class="mb-3">Contact Us</h5>
+                  <a href="mailto:contact@indiahungerreliefhub.org" class="text-white">contact@indiahungerreliefhub.org</a>
+                  <a href="tel:+911234567890" class="text-white">+91 12345 67890</a>
+                  <p>1234 Hunger Relief Street,</p>
+                  <p>New Delhi, India</p>
+              </div>
+              <div class="col-md-4 mb-3 mb-md-0 text-md-left">
+                  <h5 class="mb-3">Follow Us</h5>
+                  <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+              <div class="col-md-4 text-md-left">
+                  <h5 class="mb-3">Quick Links</h5>
+                  <a href="#" class="text-white d-block">About Us</a>
+                  <a href="#" class="text-white d-block">Donate</a>
+                  <a href="#" class="text-white d-block">Volunteer</a>
+                  <a href="#" class="text-white d-block">Blog</a>
+              </div>
+          </div>
+          <div class="row mb-4">
+              <div class="col-md-8 mx-auto news-center">
+                  <h5 class="mb-3">Subscribe to our Newsletter</h5>
+                  <form class="form-inline justify-content-center">
+                    <div class="input-group mb-2">
+                        <input type="email" class="form-control" id="subscribeEmail" placeholder="Enter your email" required>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-12">
+                  <p class="mb-0">&copy; 2024 India Hunger Relief Hub. All rights reserved.</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8EvfUdP5-b-PMAVBV_amIReAlCdSzc7g&callback=initMap"
+      async
+      defer
+    ></script>
+    <script>
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 5,
+          center: { lat: 20.5937, lng: 78.9629 }, // Centered on India
+        });
+
+        const locations = [
+          {
+            lat: 28.7041,
+            lng: 77.1025,
+            name: "Delhi Food Bank",
+            details: "Providing meals and resources in Delhi.",
+          },
+          {
+            lat: 19.076,
+            lng: 72.8777,
+            name: "Mumbai Hunger Relief",
+            details: "Supporting the community in Mumbai.",
+          },
+          {
+            lat: 13.0827,
+            lng: 80.2707,
+            name: "Chennai Food Distribution",
+            details: "Distributing food and essentials in Chennai.",
+          },
+          {
+            lat: 22.5726,
+            lng: 88.3639,
+            name: "Kolkata Meal Center",
+            details: "Serving nutritious meals in Kolkata.",
+          },
+          {
+            lat: 12.9716,
+            lng: 77.5946,
+            name: "Bangalore Hunger Aid",
+            details: "Helping the needy in Bangalore.",
+          },
+          {
+            lat: 17.385,
+            lng: 78.4867,
+            name: "Hyderabad Food Relief",
+            details: "Food relief programs in Hyderabad.",
+          },
+          {
+            lat: 26.9124,
+            lng: 75.7873,
+            name: "Jaipur Hunger Help",
+            details: "Providing meals to the hungry in Jaipur.",
+          },
+          {
+            lat: 23.2599,
+            lng: 77.4126,
+            name: "Bhopal Food Assistance",
+            details: "Offering food assistance in Bhopal.",
+          },
+          {
+            lat: 21.1702,
+            lng: 72.8311,
+            name: "Surat Food Support",
+            details: "Supporting the community in Surat.",
+          },
+          {
+            lat: 18.5204,
+            lng: 73.8567,
+            name: "Pune Meal Program",
+            details: "Providing meals to those in need in Pune.",
+          },
+          // Add more locations here
+        ];
+
+        locations.forEach((location) => {
+          const marker = new google.maps.Marker({
+            position: { lat: location.lat, lng: location.lng },
+            map: map,
+            title: location.name,
+          });
+
+          const infoWindow = new google.maps.InfoWindow({
+            content: `<div class="info-window-content"><h6>${location.name}</h6><p>${location.details}</p></div>`,
+          });
+
+          marker.addListener("click", () => {
+            infoWindow.open(map, marker);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

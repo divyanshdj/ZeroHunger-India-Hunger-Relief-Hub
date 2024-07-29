@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Community Garden 1",
+        "description": "A beautiful community garden in Andhra Pradesh.",
+        "image": "https://via.placeholder.com/150",
+        "website": "https://example.com/garden1"
+    },
+    {
+        "name": "Community Garden 2",
+        "description": "A vibrant urban farm in Bihar.",
+        "image": "https://via.placeholder.com/150",
+        "website": "https://example.com/garden2"
+    },
+    {
+        "name": "Community Garden 3",
+        "description": "An educational garden in Gujarat.",
+        "image": "https://via.placeholder.com/150",
+        "website": "https://example.com/garden3"
+    }
+]

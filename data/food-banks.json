@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Food Bank 1",
+        "address": "123 Street, City, Andhra Pradesh",
+        "latitude": 15.9129,
+        "longitude": 79.7400
+    },
+    {
+        "name": "Food Bank 2",
+        "address": "456 Street, City, Bihar",
+        "latitude": 25.0961,
+        "longitude": 85.3131
+    },
+    {
+        "name": "Food Bank 3",
+        "address": "789 Street, City, Gujarat",
+        "latitude": 22.2587,
+        "longitude": 71.1924
+    },
+    {
+        "name": "Food Bank 4",
+        "address": "101 Street, City, Karnataka",
+        "latitude": 15.3173,
+        "longitude": 75.7139
+    },
+    {
+        "name": "Food Bank 5",
+        "address": "202 Street, City, Maharashtra",
+        "latitude": 19.7515,
+        "longitude": 75.7139
+    }
+]
