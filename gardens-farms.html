@@ -27,35 +27,181 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
+    <style>
+      .garden-section {
+          margin-top: 30px;
+          text-align: center;
+      }
+      .garden-card {
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          overflow: hidden;
+          transition: box-shadow 0.3s, transform 0.3s;
+          text-align: center;
+      }
+      .garden-card img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+      }
+      .garden-card-body {
+          padding: 20px;
+      }
+      .garden-title {
+          font-size: 1.6rem;
+          margin-bottom: 0.5rem;
+          color: #1abc9c;
+      }
+      .garden-description {
+          font-size: 1rem;
+          color: #555;
+      }
+      .map-container {
+          height: 500px;
+          margin-top: 30px;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      .cta-section {
+          background-color: #f1f1f1;
+          padding: 40px;
+          border-radius: 8px;
+          text-align: center;
+          margin-top: 30px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+      .cta-section h2 {
+          margin-bottom: 20px;
+          color: #2c3e50;
+      }
+      .cta-button {
+          background-color: #1abc9c;
+          color: white;
+          border: none;
+          padding: 12px 25px;
+          border-radius: 5px;
+          font-size: 1.1rem;
+          cursor: pointer;
+          transition: background-color 0.3s, transform 0.3s;
+      }
+      .cta-button:hover {
+          background-color: #16a085;
+          transform: scale(1.05);
+      }
+  </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">India Hunger Relief Hub</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Our Work</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hunger-map.html">Hunger Map</a></li>
-                    <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="gardens-farms.html">Gardens & Farms</a></li>
-                    <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">India Hunger Relief Hub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">Our Work</a></li>
+                <li class="nav-item"><a class="nav-link" href="hunger-map.html">Hunger Map</a></li>
+                <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
+                <li class="nav-item"><a class="nav-link active" href="gardens-farms.html">Gardens & Farms</a></li>
+                <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
     <main class="container mt-5">
-        <section class="mb-5">
-            <h1>Gardens & Farms</h1>
-            <p>Discover community gardens and urban farms near you that help fight hunger and promote sustainable food sources.</p>
+        <section class="garden-section">
+            <h1 class="text-center">Gardens & Farms</h1>
+            <p class="text-center">Discover community gardens and urban farms across India that help fight hunger and promote sustainable food sources.</p>
+
+            <div class="row">
+              <div class="col-md-4 mb-4">
+                  <div class="garden-card">
+                      <img src="https://www.socialtables.com/wp-content/uploads/2016/10/iStock-540095978.jpg" alt="Garden 1">
+                      <div class="garden-card-body">
+                          <h2 class="garden-title">Community Garden A</h2>
+                          <p class="garden-description">A vibrant community garden providing fresh produce and green spaces for local residents.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="garden-card">
+                      <img src="https://www.rentecdirect.com/blog/wp-content/uploads/2016/12/bigstock-Happy-volunteer-family-holding-85091345.jpg" alt="Garden 2">
+                      <div class="garden-card-body">
+                          <h2 class="garden-title">Urban Farm B</h2>
+                          <p class="garden-description">An innovative urban farm utilizing vertical farming techniques to grow organic vegetables.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="garden-card">
+                      <img src="https://images.pexels.com/photos/933624/pexels-photo-933624.jpeg?cs=srgb&dl=pexels-suraphat-933624.jpg&fm=jpg" alt="Garden 3">
+                      <div class="garden-card-body">
+                          <h2 class="garden-title">Urban Farm C</h2>
+                          <p class="garden-description">A pioneering urban farm using cutting-edge technology to produce fresh, local food efficiently.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <div class="map-container" id="map"></div>
+
+            <div class="cta-section">
+                <h2>Get Involved!</h2>
+                <p>Join us in our mission to support local gardens and farms. Your contributions make a difference.</p>
+                <button class="cta-button">Learn More</button>
+            </div>
         </section>
     </main>
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2024 India Hunger Relief Hub</p>
-    </footer>
+    <footer class="bg-dark text-white text-center py-5">
+      <div class="container">
+          <div class="row mb-4">
+              <div class="col-md-4 mb-md-0 text-md-left">
+                  <h5 class="mb-3">Contact Us</h5>
+                  <a href="mailto:contact@indiahungerreliefhub.org" class="text-white">contact@indiahungerreliefhub.org</a>
+                  <a href="tel:+911234567890" class="text-white">+91 12345 67890</a>
+                  <p>1234 Hunger Relief Street,</p>
+                  <p>New Delhi, India</p>
+              </div>
+              <div class="col-md-4 mb-3 mb-md-0 text-md-left">
+                  <h5 class="mb-3">Follow Us</h5>
+                  <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+              <div class="col-md-4 text-md-left">
+                  <h5 class="mb-3">Quick Links</h5>
+                  <a href="#" class="text-white d-block">About Us</a>
+                  <a href="#" class="text-white d-block">Donate</a>
+                  <a href="#" class="text-white d-block">Volunteer</a>
+                  <a href="#" class="text-white d-block">Blog</a>
+              </div>
+          </div>
+          <div class="row mb-4">
+              <div class="col-md-8 mx-auto news-center">
+                  <h5 class="mb-3">Subscribe to our Newsletter</h5>
+                  <form class="form-inline justify-content-center">
+                    <div class="input-group mb-2">
+                        <input type="email" class="form-control" id="subscribeEmail" placeholder="Enter your email" required>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-12">
+                  <p class="mb-0">&copy; 2024 India Hunger Relief Hub. All rights reserved.</p>
+              </div>
+          </div>
+      </div>
+  </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -70,5 +216,51 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="scripts/main.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([20.5937, 78.9629], 5); // Centered in India
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // Array of locations
+        var locations = [
+            { lat: 28.6139, lng: 77.2090, name: 'Delhi Community Garden A' },
+            { lat: 19.0760, lng: 72.8777, name: 'Mumbai Urban Farm B' },
+            { lat: 12.9716, lng: 77.5946, name: 'Bangalore Rooftop Garden C' },
+            { lat: 22.5726, lng: 88.3639, name: 'Kolkata Green Space D' },
+            { lat: 13.0827, lng: 80.2707, name: 'Chennai Community Garden E' },
+            { lat: 26.9124, lng: 75.7873, name: 'Jaipur Farm F' },
+            { lat: 23.2599, lng: 77.4126, name: 'Bhopal Garden G' },
+            { lat: 30.7333, lng: 76.7794, name: 'Chandigarh Urban Farm H' },
+            { lat: 17.3850, lng: 78.4867, name: 'Hyderabad Farm I' },
+            { lat: 31.5204, lng: 74.3587, name: 'Lahore Garden J' }, // Outside India for diversity
+            { lat: 29.9457, lng: 78.1642, name: 'Haridwar Farm K' },
+            { lat: 24.5854, lng: 73.7125, name: 'Udaipur Garden L' },
+            { lat: 21.1702, lng: 72.8311, name: 'Surat Urban Farm M' },
+            { lat: 20.2961, lng: 85.8245, name: 'Bhubaneswar Community Garden N' },
+            { lat: 18.5204, lng: 73.8567, name: 'Pune Garden O' },
+            { lat: 28.6139, lng: 77.2090, name: 'Delhi Urban Farm P' },
+            { lat: 22.3074, lng: 73.1812, name: 'Ahmedabad Community Garden Q' },
+            { lat: 26.8467, lng: 80.9462, name: 'Lucknow Farm R' },
+            { lat: 15.3173, lng: 75.7139, name: 'Hubli Garden S' },
+            { lat: 19.2184, lng: 84.7914, name: 'Cuttack Community Farm T' },
+            { lat: 20.7982, lng: 86.7886, name: 'Bhubaneswar Urban Farm U' },
+            { lat: 22.5726, lng: 88.3639, name: 'Kolkata Garden V' },
+            { lat: 19.0760, lng: 72.8777, name: 'Mumbai Farm W' },
+            { lat: 10.8505, lng: 76.2711, name: 'Palakkad Garden X' },
+            { lat: 11.0168, lng: 76.9558, name: 'Coimbatore Urban Farm Y' },
+            { lat: 17.7010, lng: 83.1248, name: 'Visakhapatnam Farm Z' }
+        ];
+
+        // Add markers for each location
+        locations.forEach(function(location) {
+            L.marker([location.lat, location.lng]).addTo(map)
+                .bindPopup(location.name)
+                .openPopup();
+        });
+    </script>
 </body>
 </html>
