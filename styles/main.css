@@ -349,7 +349,7 @@ footer .input-group {
   background: rgba(0, 0, 0, 0.7);
   padding: 2rem;
   border-radius: 10px;
-  max-width: 500px;
+  min-width: 380px;
   width: 100%;
 }
 
@@ -388,6 +388,16 @@ footer .input-group {
 
 
 /* Responsive styles */
+@media (max-width: 1000px) {
+  #stats video{
+    height: 300px;
+    width: 620px;
+  }
+  .swiper {
+    height: 50vh;
+  }
+}
+
 @media (max-width: 768px) {
   #features .col-md-4 {
     margin-bottom: 2rem;
@@ -399,5 +409,63 @@ footer .input-group {
 
   .navbar-nav .nav-item {
     margin-bottom: 0.5rem;
+  }
+
+  #stats video{
+    height: 300px;
+    width: 520px;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .hero-content .btn {
+    padding: 10px 22px;
+  }
+
+  .swiper {
+    height: 30vh;
+  }
+
+  .ihh-card{
+    margin-bottom: 15px;
+  }
+
+  .partner-img{
+    margin-bottom: 30px;
+  }
+
+  #donate-body h1{
+    font-size: 7vw;
+  }
+  
+  #donate-body p {
+    font-size: 3vw;
+  }
+
+}
+
+@media (max-width: 540px) {
+  #stats video{
+    height: 200px;
+    width: 400px;
+  }
+  .footer-col{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-col h5{
+    font-size: 1.5rem;
+  }
+  #hero {
+    height: 60vh;
+    padding: 10px 20px;
   }
 }
