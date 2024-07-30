@@ -4,23 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hunger Map - India Hunger Relief Hub</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha384-0nrY9xj7A6XBovOkM0xZK5xHDVbFurysuT8w5c8RfF6lbrbCTRYdLtQ5nM7Iop7g"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="libraries/animate.css/animate.min.css" />
     <link rel="stylesheet" href="styles/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.css"> -->
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/b/b7/Sustainable_Development_Goal_02ZeroHunger.svg" type="svg+xml">
     <style>
       .map-container {
         margin-top: 30px;
@@ -57,9 +47,14 @@
         font-size: 20px;
         font-weight: bold;
       }
+      .dropdown-menu {
+        max-height: 200px;
+        overflow-y: auto;
+      }
     </style>
   </head>
   <body>
+
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">India Hunger Relief Hub</a>
@@ -98,6 +93,7 @@
         </div>
       </nav>
     </header>
+
     <main class="container map-container">
       <section class="map-section">
         <h1 class="map-title">Hunger Map</h1>
@@ -105,6 +101,43 @@
           Explore the interactive map below to find hunger relief centers, food
           distribution points, and other related services across India.
         </p>
+        <div class="mb-4">
+          <label for="stateDropdown" class="form-label">Select State</label>
+          <select id="stateDropdown" class="form-select">
+            <option value="all">All States</option>
+            <option value="andamanandnicobar">
+              Andaman and Nicobar Islands
+            </option>
+            <option value="arunachalpradesh">Arunachal Pradesh</option>
+            <option value="assam">Assam</option>
+            <option value="bihar">Bihar</option>
+            <option value="chhattisgarh">Chhattisgarh</option>
+            <option value="dadraandnagarhaveli">Dadra and Nagar Haveli</option>
+            <option value="damananddiu">Daman and Diu</option>
+            <option value="delhi">Delhi</option>
+            <option value="goa">Goa</option>
+            <option value="gujarat">Gujarat</option>
+            <option value="himachalpradesh">Himachal Pradesh</option>
+            <option value="jharkhand">Jharkhand</option>
+            <option value="karnataka">Karnataka</option>
+            <option value="kerala">Kerala</option>
+            <option value="lakshadweep">Lakshadweep</option>
+            <option value="madhyapradesh">Madhya Pradesh</option>
+            <option value="manipur">Manipur</option>
+            <option value="mizoram">Mizoram</option>
+            <option value="nagaland">Nagaland</option>
+            <option value="odisha">Odisha</option>
+            <option value="punjab">Punjab</option>
+            <option value="rajasthan">Rajasthan</option>
+            <option value="sikkim">Sikkim</option>
+            <option value="tamilnadu">Tamil Nadu</option>
+            <option value="telangana">Telangana</option>
+            <option value="tripura">Tripura</option>
+            <option value="uttarakhand">Uttarakhand</option>
+            <option value="uttarpradesh">Uttar Pradesh</option>
+            <option value="westbengal">West Bengal</option>
+          </select>
+        </div>
         <div id="map"></div>
       </section>
       <section class="impact-section">
@@ -173,10 +206,10 @@
           </div>
           <div class="col-md-4 text-md-left footer-col">
             <h5 class="mb-3">Quick Links</h5>
-            <a href="index.html" class="text-white d-block">Home</a>
+            <a href="about.html" class="text-white d-block">Our Work</a>
             <a href="donate.html" class="text-white d-block">Donate</a>
             <a href="data.html" class="text-white d-block">Data</a>
-            <a href="hunger-map.html" class="text-white d-block">Gardens Farm</a>
+            <a href="hunger-map.html" class="text-white d-block">Hunger Map</a>
           </div>
         </div>
         <div class="row mb-4">
@@ -211,101 +244,371 @@
       </div>
     </footer>
 
+    <script src="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
     <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8EvfUdP5-b-PMAVBV_amIReAlCdSzc7g&callback=initMap"
       async
       defer
     ></script>
     <script>
-      function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 5,
-          center: { lat: 20.5937, lng: 78.9629 }, // Centered on India
-        });
+      let map;
+      const markers = [];
 
-        const locations = [
+      const stateDetails = {
+        andamanandnicobar: { center: { lat: 11.7401, lng: 92.6586 }, zoom: 8 },
+        arunachalpradesh: { center: { lat: 27.1046, lng: 93.595 }, zoom: 7 },
+        assam: { center: { lat: 26.2006, lng: 92.9376 }, zoom: 7 },
+        bihar: { center: { lat: 25.0961, lng: 85.3131 }, zoom: 7 },
+        chhattisgarh: { center: { lat: 21.2787, lng: 81.8661 }, zoom: 7 },
+        damananddiu: { center: { lat: 20.4232, lng: 72.8311 }, zoom: 10 },
+        dadraandnagarhaveli: { center: { lat: 20.1801, lng: 76.5 }, zoom: 10 },
+        delhi: { center: { lat: 28.6139, lng: 77.209 }, zoom: 10 },
+        goa: { center: { lat: 15.2993, lng: 74.124 }, zoom: 8 },
+        gujarat: { center: { lat: 22.2587, lng: 71.1924 }, zoom: 7 },
+        haryana: { center: { lat: 29.0588, lng: 76.0856 }, zoom: 7 },
+        himachalpradesh: { center: { lat: 31.1048, lng: 77.1734 }, zoom: 7 },
+        jammuandkashmir: { center: { lat: 33.7782, lng: 76.5762 }, zoom: 7 },
+        jharkhand: { center: { lat: 23.6102, lng: 85.2799 }, zoom: 7 },
+        karnataka: { center: { lat: 15.3173, lng: 75.7139 }, zoom: 7 },
+        kerala: { center: { lat: 10.8505, lng: 76.2711 }, zoom: 7 },
+        lakshadweep: { center: { lat: 10.5626, lng: 72.6417 }, zoom: 8 },
+        madhyapradesh: { center: { lat: 23.4734, lng: 77.0234 }, zoom: 7 },
+        maharashtra: { center: { lat: 19.6633, lng: 75.3302 }, zoom: 6 },
+        manipur: { center: { lat: 24.6637, lng: 93.0353 }, zoom: 7 },
+        meghalaya: { center: { lat: 25.467, lng: 91.3662 }, zoom: 7 },
+        mizoram: { center: { lat: 23.1645, lng: 92.9376 }, zoom: 7 },
+        nagaland: { center: { lat: 26.1584, lng: 94.5624 }, zoom: 7 },
+        odisha: { center: { lat: 20.9517, lng: 85.0985 }, zoom: 7 },
+        puducherry: { center: { lat: 11.9416, lng: 79.8083 }, zoom: 8 },
+        punjab: { center: { lat: 31.1471, lng: 75.3412 }, zoom: 7 },
+        rajasthan: { center: { lat: 27.0238, lng: 74.2176 }, zoom: 7 },
+        sikkim: { center: { lat: 27.533, lng: 88.5122 }, zoom: 7 },
+        tamilnadu: { center: { lat: 11.1271, lng: 78.6569 }, zoom: 7 },
+        telangana: { center: { lat: 17.1232, lng: 79.2085 }, zoom: 7 },
+        tripura: { center: { lat: 23.8364, lng: 91.2803 }, zoom: 7 },
+        uttarpradesh: { center: { lat: 26.8467, lng: 80.9462 }, zoom: 6 },
+        uttarakhand: { center: { lat: 30.0668, lng: 79.0193 }, zoom: 7 },
+        westbengal: { center: { lat: 22.9868, lng: 87.855 }, zoom: 7 },
+      };
+
+      const locations = {
+        all: [
           {
             lat: 28.7041,
             lng: 77.1025,
             name: "Delhi Food Bank",
             details: "Providing meals and resources in Delhi.",
+            state: "delhi",
           },
           {
             lat: 19.076,
             lng: 72.8777,
             name: "Mumbai Hunger Relief",
             details: "Supporting the community in Mumbai.",
+            state: "maharashtra",
           },
           {
             lat: 13.0827,
             lng: 80.2707,
             name: "Chennai Food Distribution",
             details: "Distributing food and essentials in Chennai.",
+            state: "tamilnadu",
           },
           {
             lat: 22.5726,
             lng: 88.3639,
             name: "Kolkata Meal Center",
             details: "Serving nutritious meals in Kolkata.",
+            state: "westbengal",
           },
           {
             lat: 12.9716,
             lng: 77.5946,
             name: "Bangalore Hunger Aid",
             details: "Helping the needy in Bangalore.",
+            state: "karnataka",
           },
           {
             lat: 17.385,
             lng: 78.4867,
             name: "Hyderabad Food Relief",
             details: "Food relief programs in Hyderabad.",
+            state: "telangana",
           },
           {
             lat: 26.9124,
             lng: 75.7873,
             name: "Jaipur Hunger Help",
             details: "Providing meals to the hungry in Jaipur.",
+            state: "rajasthan",
           },
           {
             lat: 23.2599,
             lng: 77.4126,
             name: "Bhopal Food Assistance",
             details: "Offering food assistance in Bhopal.",
+            state: "madhyapradesh",
           },
           {
             lat: 21.1702,
             lng: 72.8311,
             name: "Surat Food Support",
             details: "Supporting the community in Surat.",
+            state: "gujarat",
           },
           {
-            lat: 18.5204,
-            lng: 73.8567,
-            name: "Pune Meal Program",
-            details: "Providing meals to those in need in Pune.",
+            lat: 31.5204,
+            lng: 74.3587,
+            name: "Ludhiana Food Aid",
+            details: "Providing food aid in Ludhiana.",
+            state: "punjab",
           },
-          // Add more locations here
-        ];
+          {
+            lat: 30.7333,
+            lng: 76.7794,
+            name: "Chandigarh Meal Program",
+            details: "Serving meals in Chandigarh.",
+            state: "haryana",
+          },
+          {
+            lat: 10.8505,
+            lng: 76.2711,
+            name: "Kochi Food Distribution",
+            details: "Distributing food in Kochi.",
+            state: "kerala",
+          },
+          {
+            lat: 26.8467,
+            lng: 80.9462,
+            name: "Lucknow Relief Center",
+            details: "Providing relief in Lucknow.",
+            state: "uttarpradesh",
+          },
+          {
+            lat: 25.0961,
+            lng: 85.3131,
+            name: "Patna Food Center",
+            details: "Helping with food needs in Patna.",
+            state: "bihar",
+          },
+          {
+            lat: 23.6102,
+            lng: 85.2799,
+            name: "Ranchi Relief Program",
+            details: "Providing relief in Ranchi.",
+            state: "jharkhand",
+          },
+          {
+            lat: 20.9517,
+            lng: 85.0985,
+            name: "Bhubaneswar Food Aid",
+            details: "Food aid in Bhubaneswar.",
+            state: "odisha",
+          },
+          {
+            lat: 26.2006,
+            lng: 92.9376,
+            name: "Guwahati Hunger Relief",
+            details: "Helping the needy in Guwahati.",
+            state: "assam",
+          },
+          {
+            lat: 31.1048,
+            lng: 77.1734,
+            name: "Shimla Food Assistance",
+            details: "Food assistance in Shimla.",
+            state: "himachalpradesh",
+          },
+          {
+            lat: 30.0668,
+            lng: 79.0193,
+            name: "Dehradun Relief Center",
+            details: "Providing relief in Dehradun.",
+            state: "uttarakhand",
+          },
+          {
+            lat: 21.2787,
+            lng: 81.8661,
+            name: "Raipur Food Relief",
+            details: "Offering food relief in Raipur.",
+            state: "chhattisgarh",
+          },
+          {
+            lat: 23.8364,
+            lng: 91.2803,
+            name: "Agartala Food Support",
+            details: "Food support in Agartala.",
+            state: "tripura",
+          },
+          {
+            lat: 25.467,
+            lng: 91.3662,
+            name: "Shillong Relief Program",
+            details: "Providing relief in Shillong.",
+            state: "meghalaya",
+          },
+          {
+            lat: 24.6637,
+            lng: 93.0353,
+            name: "Imphal Food Center",
+            details: "Helping with food needs in Imphal.",
+            state: "manipur",
+          },
+          {
+            lat: 23.1645,
+            lng: 92.9376,
+            name: "Aizawl Relief Center",
+            details: "Offering relief in Aizawl.",
+            state: "mizoram",
+          },
+          {
+            lat: 26.1584,
+            lng: 94.5624,
+            name: "Kohima Food Assistance",
+            details: "Food assistance in Kohima.",
+            state: "nagaland",
+          },
+          {
+            lat: 27.1046,
+            lng: 93.595,
+            name: "Itanagar Relief Program",
+            details: "Providing relief in Itanagar.",
+            state: "arunachalpradesh",
+          },
+          {
+            lat: 27.533,
+            lng: 88.5122,
+            name: "Gangtok Food Relief",
+            details: "Offering food relief in Gangtok.",
+            state: "sikkim",
+          },
+          {
+            lat: 11.7401,
+            lng: 92.6586,
+            name: "Port Blair Hunger Help",
+            details: "Helping the needy in Port Blair.",
+            state: "andamanandnicobar",
+          },
+          {
+            lat: 20.4232,
+            lng: 72.8311,
+            name: "Daman Food Assistance",
+            details: "Providing food assistance in Daman.",
+            state: "damananddiu",
+          },
+          {
+            lat: 20.1801,
+            lng: 76.5,
+            name: "Silvassa Food Support",
+            details: "Food support in Silvassa.",
+            state: "dadraandnagarhaveli",
+          },
+          {
+            lat: 10.5626,
+            lng: 72.6417,
+            name: "Kavaratti Food Relief",
+            details: "Offering food relief in Kavaratti.",
+            state: "lakshadweep",
+          },
+          {
+            lat: 15.2993,
+            lng: 74.124,
+            name: "Panaji Relief Center",
+            details: "Providing relief in Panaji.",
+            state: "goa",
+          },
+          {
+            lat: 33.7782,
+            lng: 76.5762,
+            name: "Srinagar Relief Center",
+            details: "Providing relief in Srinagar.",
+            state: "jammuandkashmir",
+          },
+          {
+            lat: 29.0588,
+            lng: 76.0856,
+            name: "Faridabad Food Aid",
+            details: "Providing food aid in Faridabad.",
+            state: "haryana",
+          },
+          {
+            lat: 19.076,
+            lng: 72.8777,
+            name: "Thane Relief Center",
+            details: "Providing relief in Thane.",
+            state: "maharashtra",
+          },
+        ],
+      };
 
-        locations.forEach((location) => {
-          const marker = new google.maps.Marker({
-            position: { lat: location.lat, lng: location.lng },
-            map: map,
-            title: location.name,
-          });
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 20.5937, lng: 78.9629 }, // Center of India
+          zoom: 5,
+        });
 
-          const infoWindow = new google.maps.InfoWindow({
-            content: `<div class="info-window-content"><h6>${location.name}</h6><p>${location.details}</p></div>`,
-          });
+        // Add markers for all states by default
+        addMarkers("all");
 
-          marker.addListener("click", () => {
-            infoWindow.open(map, marker);
+        // Event listener for dropdown change
+        document
+          .getElementById("stateDropdown")
+          .addEventListener("change", function () {
+            const state = this.value;
+            if (state === "all") {
+              map.setCenter({ lat: 20.5937, lng: 78.9629 });
+              map.setZoom(5);
+              addMarkers("all");
+            } else {
+              const { center, zoom } = stateDetails[state];
+              map.setCenter(center);
+              map.setZoom(zoom);
+              addMarkers(state);
+            }
           });
+      }
+
+      function addMarkers(state) {
+        // Clear existing markers
+        markers.forEach((marker) => marker.setMap(null));
+        markers.length = 0;
+
+        // Add new markers based on the selected state
+        locations.all.forEach((location) => {
+          if (state === "all" || location.state === state) {
+            const marker = new google.maps.Marker({
+              position: { lat: location.lat, lng: location.lng },
+              map: map,
+              title: location.name,
+            });
+
+            const infowindow = new google.maps.InfoWindow({
+              content: `<div class="info-window-content">
+                                    <h6>${location.name}</h6>
+                                    <p>${location.details}</p>
+                                  </div>`,
+            });
+
+            marker.addListener("click", () => {
+              infowindow.open(map, marker);
+            });
+
+            markers.push(marker);
+          }
         });
       }
     </script>
