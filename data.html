@@ -28,12 +28,16 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="./assets/images/zeroHunger.png" type="svg+xml">
+    <link
+      rel="shortcut icon"
+      href="./assets/images/zeroHunger.png"
+      type="svg+xml"
+    />
     <style>
       .chart-container {
         position: relative;
-        height: 400px; /* Increased height for better visibility */
-        width: 100%; /* Full width for larger display */
+        height: 400px;
+        width: 100%;
       }
 
       #hungerChart {
@@ -78,10 +82,10 @@
       }
 
       .dropdown-menu {
-        display: none; /* Hide by default */
-        max-height: 300px; /* Adjust based on content */
-        overflow-y: auto; /* Enable scrolling if content overflows */
-        z-index: 1050; /* Ensure it's on top */
+        display: none;
+        max-height: 300px;
+        overflow-y: auto;
+        z-index: 1050;
       }
     </style>
   </head>
@@ -146,13 +150,9 @@
               class="dropdown-menu"
               aria-labelledby="dropdownMenuButton"
               id="stateDropdownMenu"
-            >
-              <!-- Dropdown items will be inserted here by JavaScript -->
-            </ul>
+            ></ul>
           </div>
-          <div data-aos="fade-up" class="state-details" id="stateDetails">
-            <!-- State details will be displayed here -->
-          </div>
+          <div data-aos="fade-up" class="state-details" id="stateDetails"></div>
         </div>
         <section id="food-security-overview" class="mb-5 mt-3">
           <h2 class="text-center mb-4">Food Security Overview</h2>
@@ -376,11 +376,10 @@
       AOS.init();
 
       document.addEventListener("DOMContentLoaded", function () {
-        // Fetch the data from states.json
-        fetch('data/states.json')
-          .then(response => response.json())
-          .then(states => {
-            // Render dropdown items
+        fetch("data/states.json")
+          .then((response) => response.json())
+          .then((states) => {
+
             const dropdownMenu = document.getElementById("stateDropdownMenu");
             states.forEach((state) => {
               const dropdownItem = document.createElement("li");
@@ -448,7 +447,7 @@
                 scales: {
                   x: {
                     ticks: {
-                      autoSkip: false, // Show all state names
+                      autoSkip: false, 
                     },
                   },
                   y: {
@@ -463,8 +462,8 @@
               },
             });
           })
-          .catch(error => {
-            console.error('Error fetching data:', error);
+          .catch((error) => {
+            console.error("Error fetching data:", error);
           });
       });
     </script>

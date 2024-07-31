@@ -21,13 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const scroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
-    multiplier: 1, // Adjust this value if needed
+    multiplier: 1, 
   });
 
-  // Optional: Update Locomotive Scroll instance when content changes
   scroll.update();
   
-  // Accordion initialization
   const accordionItems = document.querySelectorAll(".accordion-item");
 
   accordionItems.forEach((item) => {
@@ -36,13 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
       .addEventListener("click", function () {
         const isActive = item.classList.contains("active");
 
-        // Close all accordion items
         accordionItems.forEach((i) => {
           i.classList.remove("active");
           i.querySelector(".accordion-content").style.maxHeight = 0;
         });
 
-        // Toggle the clicked item
         if (!isActive) {
           item.classList.add("active");
           const accordionContent = item.querySelector(".accordion-content");
