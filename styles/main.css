@@ -66,9 +66,10 @@ header {
 
 .swiper-slide img {
   display: block;
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  width: 100%;
+  object-fit:cover;
+  object-position: center;
 }
 
 #hero {
@@ -456,6 +457,9 @@ footer .input-group {
     font-size: 3vw;
   }
 
+  .swiper-wrapper {
+    height: 40vh;
+  }
 }
 
 @media (max-width: 540px) {
@@ -476,5 +480,8 @@ footer .input-group {
   #hero {
     height: 60vh;
     padding: 10px 20px;
+  }
+  .swiper-wrapper {
+    height: 25vh;
   }
 }
