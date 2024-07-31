@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="libraries/animate.css/animate.min.css" />
     <link rel="stylesheet" href="styles/main.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.css"> -->
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/b/b7/Sustainable_Development_Goal_02ZeroHunger.svg" type="svg+xml">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/images/zeroHunger.png" type="svg+xml">
     <style>
       .map-container {
         margin-top: 30px;
@@ -96,12 +96,12 @@
 
     <main class="container map-container">
       <section class="map-section">
-        <h1 class="map-title">Hunger Map</h1>
-        <p class="mb-4">
+        <h1 class="map-title text-center">Hunger Map</h1>
+        <p class="mb-4 text-center">
           Explore the interactive map below to find hunger relief centers, food
           distribution points, and other related services across India.
         </p>
-        <div class="mb-4">
+        <div data-aos="fade-up" class="mb-4">
           <label for="stateDropdown" class="form-label">Select State</label>
           <select id="stateDropdown" class="form-select">
             <option value="all">All States</option>
@@ -138,11 +138,11 @@
             <option value="westbengal">West Bengal</option>
           </select>
         </div>
-        <div id="map"></div>
+        <div data-aos="fade-up" id="map"></div>
       </section>
       <section class="impact-section">
         <h2 class="impact-title">Our Impact</h2>
-        <div class="row">
+        <div data-aos="fade-up" class="row">
           <div class="col-md-4">
             <div class="card impact-card mb-4">
               <div class="card-body">
@@ -244,7 +244,10 @@
       </div>
     </footer>
 
-    <script src="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

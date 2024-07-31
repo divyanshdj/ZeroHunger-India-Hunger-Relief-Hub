@@ -31,7 +31,6 @@ header {
   padding: 2rem 0;
 }
 
-/* Intro section */
 #intro {
   background: #f8f9fa;
   padding: 3rem 0;
@@ -46,7 +45,6 @@ header {
   font-size: 1.2rem;
 }
 
-/* Swiper styles */
 .swiper {
   width: 100%;
   height: 100%;
@@ -76,14 +74,14 @@ header {
 #hero {
   height: 90vh;
   width: 100%;
-  background-image: url("../images/intro-bg.webp");
+  background-image: url("../assets/images/intro-bg.webp");
   background-size: cover;
   background-position: center;
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: start;
-  align-items: center; /* Center vertically */
+  align-items: center; 
   padding: 100px 50px;
 }
 
@@ -133,8 +131,6 @@ header {
   background-color: #e64a19;
 }
 
-
-/* Features section */
 #features {
   padding: 3rem 0;
 }
@@ -170,7 +166,6 @@ header {
   font-size: 1rem;
 }
 
-/* Footer styles */
 footer {
   background-color: #343a40;
   color: #fff;
@@ -238,14 +233,11 @@ footer .input-group {
   align-items: center;
 }
 
-
-/* Map styles */
 #map {
   height: 500px;
   margin-bottom: 2rem;
 }
 
-/* Chart styles */
 #hungerChart {
   max-width: 800px;
   margin: 2rem auto;
@@ -260,7 +252,6 @@ footer .input-group {
   width: 100%;
 }
 
-/* Accordion styles */
 .accordion {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -309,7 +300,7 @@ footer .input-group {
 #donate-body {
   height: 90vh;
   width: 100%;
-  background-image: url("../images/hero-bg.jpg");
+  background-image: url("../assets/images/hero-bg.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -393,24 +384,19 @@ footer .input-group {
   object-fit: contain;
 }
 
-/* Add to your main.css or a relevant stylesheet */
 .fade-in {
   opacity: 0;
-  transition: opacity 1.5s ease-in-out; /* Adjust duration for slower animation */
+  transition: opacity 1.5s ease-in-out; 
 }
 
 [data-scroll] {
   opacity: 1 !important;
 }
 
-/* Optional: Add delay for additional control */
 [data-scroll][data-scroll-delay] {
   transition-delay: var(--scroll-delay, 1s);
 }
 
-
-
-/* Responsive styles */
 @media (max-width: 1000px) {
   #stats video{
     height: 300px;

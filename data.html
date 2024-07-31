@@ -1,343 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data - India Hunger Relief Hub</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="libraries/animate.css/animate.min.css" />
     <link rel="stylesheet" href="styles/main.css" />
-    <link rel="stylesheet" href="styles/other.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/other.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./assets/images/zeroHunger.png" type="svg+xml">
     <style>
-        .chart-container {
-            position: relative;
-            height: 400px; /* Increased height for better visibility */
-            width: 100%; /* Full width for larger display */
-        }
+      .chart-container {
+        position: relative;
+        height: 400px; /* Increased height for better visibility */
+        width: 100%; /* Full width for larger display */
+      }
 
-        #hungerChart{
-            width: 100%;
-        }
+      #hungerChart {
+        width: 100%;
+      }
 
-        #stateData{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+      #stateData {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-        #stateDetails-div{
-            border: 1px solid black;
-            border-radius: 10px;
-            margin: 5px 0px 30px 0px;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+      #stateDetails-div {
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: 5px 0px 30px 0px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .state-details {
-            margin-top: 20px;
-        }
+      .state-details {
+        margin-top: 20px;
+      }
 
-        .state-details h5 {
-            margin-bottom: 10px;
-        }
+      .state-details h5 {
+        margin-bottom: 10px;
+      }
 
-        .state-details p {
-            margin: 5px 0;
-        }
+      .state-details p {
+        margin: 5px 0;
+      }
 
-        .center-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+      .center-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .dropdown-menu {
+        display: none; /* Hide by default */
+        max-height: 300px; /* Adjust based on content */
+        overflow-y: auto; /* Enable scrolling if content overflows */
+        z-index: 1050; /* Ensure it's on top */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">India Hunger Relief Hub</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Our Work</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hunger-map.html">Hunger Map</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="data.html">Data</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gardens-farms.html">Gardens & Farms</a></li>
-                    <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
-                </ul>
-            </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">India Hunger Relief Hub</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Our Work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hunger-map.html">Hunger Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="data.html">Data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gardens-farms.html">Gardens & Farms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="donate.html">Donate</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
     <main class="container mt-5">
-        <section class="mb-5">
-            <h1>Data Visualization</h1>
-            <div class="chart-container">
-                <canvas id="hungerChart"></canvas>
-            </div>
-            <div id="stateData" class="mt-5">
-                <h2>State-wise Hunger Statistics</h2>
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        Select a State
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="stateDropdownMenu">
-                        <!-- Dropdown items will be inserted here by JavaScript -->
-                    </ul>
-                </div>
-                <div class="state-details" id="stateDetails">
-                    <!-- State details will be displayed here -->
-                </div>
-            </div>
-            <section id="food-security-overview" class="mb-5 mt-3">
-                <h2 class="text-center mb-4">Food Security Overview</h2>
-                <div class="accordion" id="foodSecurityAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Global Food Security Index
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#foodSecurityAccordion">
-                            <div class="accordion-body">
-                                In 2022, India was ranked 68th out of 113 major countries in terms of food security.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Global Hunger Index
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#foodSecurityAccordion">
-                            <div class="accordion-body">
-                                In 2023, India was ranked 111th out of 125 countries.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Undernourishment Statistics
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#foodSecurityAccordion">
-                            <div class="accordion-body">
-                                According to the United Nations, there are nearly 195 million undernourished people in India, making up a quarter of the world's undernourished population. Approximately 43% of children in India are chronically undernourished.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                Nutritional Standards
-                            </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#foodSecurityAccordion">
-                            <div class="accordion-body">
-                                Though current nutritional standards meet 100% of daily food requirements, India lags in quality protein intake, at 20%. This shortcoming can be addressed by making protein-rich foods such as soybeans, lentils, meat, eggs, and dairy more accessible and affordable.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                Economic Capacity
-                            </button>
-                        </h2>
-                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#foodSecurityAccordion">
-                            <div class="accordion-body">
-                                The Human Rights Measurement Initiative finds that India is operating at only 56.8% of its capacity based on its economic power to ensure adequate food security for its citizens.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </section>
-    </main>
-    <footer class="bg-dark text-white text-center py-5" data-scroll-section>
-        <div class="container">
-          <div class="row mb-4">
-            <div class="col-md-4 mb-md-0 text-md-left footer-col">
-              <h5 class="mb-3">Contact Us</h5>
-              <a href="mailto:contact@indiahungerreliefhub.org" class="text-white">contact@indiahungerreliefhub.org</a>
-              <a href="tel:+911234567890" class="text-white">+91 12345 67890</a>
-              <p>1234 Hunger Relief Street,</p>
-              <p>New Delhi, India</p>
-            </div>
-            <div class="col-md-4 mb-3 mb-md-0 text-md-left footer-col">
-              <h5 class="mb-3">Follow Us</h5>
-              <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <div class="col-md-4 text-md-left footer-col">
-              <h5 class="mb-3">Quick Links</h5>
-              <a href="index.html" class="text-white d-block">Home</a>
-              <a href="donate.html" class="text-white d-block">Donate</a>
-              <a href="about.html" class="text-white d-block">Our Work</a>
-              <a href="hunger-map.html" class="text-white d-block">Hunger Map</a>
-            </div>
+      <section class="mb-5">
+        <h1>Data Visualization</h1>
+        <div data-aos="fade-up" class="chart-container">
+          <canvas id="hungerChart"></canvas>
+        </div>
+        <div data-aos="fade-up" id="stateData" class="mt-5">
+          <h2>State-wise Hunger Statistics</h2>
+          <div class="dropdown">
+            <button
+              class="btn btn-primary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Select a State
+            </button>
+            <ul
+              class="dropdown-menu"
+              aria-labelledby="dropdownMenuButton"
+              id="stateDropdownMenu"
+            >
+              <!-- Dropdown items will be inserted here by JavaScript -->
+            </ul>
           </div>
-          <div class="row mb-4">
-            <div class="col-md-8 mx-auto news-center">
-              <h5 class="mb-3">Subscribe to our Newsletter</h5>
-              <form class="form-inline justify-content-center">
-                <div class="input-group mb-2">
-                  <input type="email" class="form-control" id="subscribeEmail" placeholder="Enter your email" required />
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <p class="mb-0">&copy; 2024 India Hunger Relief Hub [Code Crafters]</p>
-              <p>All rights reserved.</p>
-            </div>
+          <div data-aos="fade-up" class="state-details" id="stateDetails">
+            <!-- State details will be displayed here -->
           </div>
         </div>
-      </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <section id="food-security-overview" class="mb-5 mt-3">
+          <h2 class="text-center mb-4">Food Security Overview</h2>
+          <div data-aos="fade-up" class="accordion" id="foodSecurityAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Global Food Security Index
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingOne"
+                data-bs-parent="#foodSecurityAccordion"
+              >
+                <div class="accordion-body">
+                  In 2022, India was ranked 68th out of 113 major countries in
+                  terms of food security.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Global Hunger Index
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#foodSecurityAccordion"
+              >
+                <div class="accordion-body">
+                  In 2023, India was ranked 111th out of 125 countries.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Undernourishment Statistics
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#foodSecurityAccordion"
+              >
+                <div class="accordion-body">
+                  According to the United Nations, there are nearly 195 million
+                  undernourished people in India, making up a quarter of the
+                  world's undernourished population. Approximately 43% of
+                  children in India are chronically undernourished.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour"
+                >
+                  Nutritional Standards
+                </button>
+              </h2>
+              <div
+                id="collapseFour"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFour"
+                data-bs-parent="#foodSecurityAccordion"
+              >
+                <div class="accordion-body">
+                  Though current nutritional standards meet 100% of daily food
+                  requirements, India lags in quality protein intake, at 20%.
+                  This shortcoming can be addressed by making protein-rich foods
+                  such as soybeans, lentils, meat, eggs, and dairy more
+                  accessible and affordable.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive"
+                  aria-expanded="false"
+                  aria-controls="collapseFive"
+                >
+                  Economic Capacity
+                </button>
+              </h2>
+              <div
+                id="collapseFive"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFive"
+                data-bs-parent="#foodSecurityAccordion"
+              >
+                <div class="accordion-body">
+                  The Human Rights Measurement Initiative finds that India is
+                  operating at only 56.8% of its capacity based on its economic
+                  power to ensure adequate food security for its citizens.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer class="bg-dark text-white text-center py-5" data-scroll-section>
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-4 mb-md-0 text-md-left footer-col">
+            <h5 class="mb-3">Contact Us</h5>
+            <a href="mailto:contact@indiahungerreliefhub.org" class="text-white"
+              >contact@indiahungerreliefhub.org</a
+            >
+            <a href="tel:+911234567890" class="text-white">+91 12345 67890</a>
+            <p>1234 Hunger Relief Street,</p>
+            <p>New Delhi, India</p>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0 text-md-left footer-col">
+            <h5 class="mb-3">Follow Us</h5>
+            <a href="#" class="text-white mx-2"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="text-white mx-2"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="text-white mx-2"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="text-white mx-2"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+          <div class="col-md-4 text-md-left footer-col">
+            <h5 class="mb-3">Quick Links</h5>
+            <a href="index.html" class="text-white d-block">Home</a>
+            <a href="donate.html" class="text-white d-block">Donate</a>
+            <a href="about.html" class="text-white d-block">Our Work</a>
+            <a href="hunger-map.html" class="text-white d-block">Hunger Map</a>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-md-8 mx-auto news-center">
+            <h5 class="mb-3">Subscribe to our Newsletter</h5>
+            <form class="form-inline justify-content-center">
+              <div class="input-group mb-2">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="subscribeEmail"
+                  placeholder="Enter your email"
+                  required
+                />
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-primary">
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="mb-0">
+              &copy; 2024 India Hunger Relief Hub [Code Crafters]
+            </p>
+            <p>All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const states = [
-                { name: 'Andhra Pradesh', population: 495, foodInsecurity: 13, malnutrition: 29 },
-                { name: 'Arunachal Pradesh', population: 14, foodInsecurity: 21, malnutrition: 36 },
-                { name: 'Assam', population: 35, foodInsecurity: 19, malnutrition: 39 },
-                { name: 'Bihar', population: 128, foodInsecurity: 20, malnutrition: 42 },
-                { name: 'Chhattisgarh', population: 29, foodInsecurity: 17, malnutrition: 31 },
-                { name: 'Goa', population: 2, foodInsecurity: 7, malnutrition: 12 },
-                { name: 'Gujarat', population: 64, foodInsecurity: 13, malnutrition: 29 },
-                { name: 'Haryana', population: 29, foodInsecurity: 11, malnutrition: 27 },
-                { name: 'Himachal Pradesh', population: 8, foodInsecurity: 9, malnutrition: 20 },
-                { name: 'Jharkhand', population: 32, foodInsecurity: 22, malnutrition: 34 },
-                { name: 'Karnataka', population: 67, foodInsecurity: 10, malnutrition: 25 },
-                { name: 'Kerala', population: 35, foodInsecurity: 7, malnutrition: 15 },
-                { name: 'Madhya Pradesh', population: 85, foodInsecurity: 18, malnutrition: 32 },
-                { name: 'Maharashtra', population: 123, foodInsecurity: 15, malnutrition: 35 },
-                { name: 'Manipur', population: 3, foodInsecurity: 25, malnutrition: 40 },
-                { name: 'Meghalaya', population: 3, foodInsecurity: 24, malnutrition: 38 },
-                { name: 'Mizoram', population: 1, foodInsecurity: 19, malnutrition: 35 },
-                { name: 'Nagaland', population: 2, foodInsecurity: 22, malnutrition: 37 },
-                { name: 'Odisha', population: 44, foodInsecurity: 20, malnutrition: 33 },
-                { name: 'Punjab', population: 30, foodInsecurity: 8, malnutrition: 18 },
-                { name: 'Rajasthan', population: 81, foodInsecurity: 17, malnutrition: 37 },
-                { name: 'Sikkim', population: 1, foodInsecurity: 12, malnutrition: 22 },
-                { name: 'Tamil Nadu', population: 76, foodInsecurity: 11, malnutrition: 28 },
-                { name: 'Telangana', population: 40, foodInsecurity: 15, malnutrition: 30 },
-                { name: 'Tripura', population: 4, foodInsecurity: 18, malnutrition: 35 },
-                { name: 'Uttar Pradesh', population: 231, foodInsecurity: 18, malnutrition: 40 },
-                { name: 'Uttarakhand', population: 11, foodInsecurity: 14, malnutrition: 26 },
-                { name: 'West Bengal', population: 100, foodInsecurity: 12, malnutrition: 30 },
-                { name: 'Delhi', population: 19, foodInsecurity: 9, malnutrition: 22 },
-                // Add more states as needed
-            ];
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fetch the data from states.json
+        fetch('data/states.json')
+          .then(response => response.json())
+          .then(states => {
             // Render dropdown items
-            const dropdownMenu = document.getElementById('stateDropdownMenu');
-            states.forEach(state => {
-                const dropdownItem = document.createElement('li');
-                dropdownItem.classList.add('dropdown-item');
-                dropdownItem.textContent = state.name;
-                dropdownItem.dataset.state = JSON.stringify(state); // Store state data in a data attribute
-                dropdownItem.addEventListener('click', () => {
-                    showStateDetails(state);
-                });
-                dropdownMenu.appendChild(dropdownItem);
+            const dropdownMenu = document.getElementById("stateDropdownMenu");
+            states.forEach((state) => {
+              const dropdownItem = document.createElement("li");
+              dropdownItem.classList.add("dropdown-item");
+              dropdownItem.textContent = state.name;
+              dropdownItem.dataset.state = JSON.stringify(state); // Store state data in a data attribute
+              dropdownItem.addEventListener("click", () => {
+                showStateDetails(state);
+              });
+              dropdownMenu.appendChild(dropdownItem);
             });
 
             function showStateDetails(state) {
-                const stateDetails = document.getElementById('stateDetails');
-                stateDetails.innerHTML = `
+              const stateDetails = document.getElementById("stateDetails");
+              stateDetails.innerHTML = `
                 <div id="stateDetails-div">
-                    <h5>${state.name}</h5>
-                    <p><strong>Population:</strong> ${state.population} million</p>
-                    <p><strong>Food Insecurity Rate:</strong> ${state.foodInsecurity}%</p>
-                    <p><strong>Children Malnourished:</strong> ${state.malnutrition}%</p>
+                  <h5>${state.name}</h5>
+                  <p><strong>Population:</strong> ${state.population} million</p>
+                  <p><strong>Food Insecurity Rate:</strong> ${state.foodInsecurity}%</p>
+                  <p><strong>Children Malnourished:</strong> ${state.malnutrition}%</p>
                 </div>
-                `;
+              `;
             }
 
             // Render chart
-            const ctx = document.getElementById('hungerChart').getContext('2d');
+            const ctx = document.getElementById("hungerChart").getContext("2d");
             new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: states.map(state => state.name),
-                    datasets: [{
-                        label: 'Food Insecurity Rate (%)',
-                        data: states.map(state => state.foodInsecurity),
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1,
-                        hoverBackgroundColor: 'rgba(54, 162, 235, 0.4)',
-                        hoverBorderColor: 'rgba(54, 162, 235, 1)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false, // Allow custom sizing
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed.y !== null) {
-                                        label += context.parsed.y + '%';
-                                    }
-                                    return label;
-                                }
-                            }
+              type: "bar",
+              data: {
+                labels: states.map((state) => state.name),
+                datasets: [
+                  {
+                    label: "Food Insecurity Rate (%)",
+                    data: states.map((state) => state.foodInsecurity),
+                    backgroundColor: "rgba(54, 162, 235, 0.2)",
+                    borderColor: "rgba(54, 162, 235, 1)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(54, 162, 235, 0.4)",
+                    hoverBorderColor: "rgba(54, 162, 235, 1)",
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false, // Allow custom sizing
+                plugins: {
+                  legend: {
+                    position: "top",
+                  },
+                  tooltip: {
+                    callbacks: {
+                      label: function (context) {
+                        let label = context.dataset.label || "";
+                        if (label) {
+                          label += ": ";
                         }
+                        if (context.parsed.y !== null) {
+                          label += context.parsed.y + "%";
+                        }
+                        return label;
+                      },
                     },
-                    scales: {
-                        x: {
-                            ticks: {
-                                autoSkip: false // Show all state names
-                            }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            stepSize: 2,
-                            ticks: {
-                                suggestedMin: 0,
-                                suggestedMax: 50
-                            }
-                        }
-                    }
-                }
+                  },
+                },
+                scales: {
+                  x: {
+                    ticks: {
+                      autoSkip: false, // Show all state names
+                    },
+                  },
+                  y: {
+                    beginAtZero: true,
+                    stepSize: 2,
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 50,
+                    },
+                  },
+                },
+              },
             });
-        });
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      });
     </script>
-</body>
+  </body>
 </html>
