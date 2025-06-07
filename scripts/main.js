@@ -1,9 +1,13 @@
-// Dynamically load Google Maps API
-const script = document.createElement("script");
-script.src = `https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&callback=initMap`;
-script.async = true;
-script.defer = true;
-document.head.appendChild(script);
+const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+if (!apiKey) {
+  document.getElementById('map').innerHTML = '<p>Error: Unable to load map. Please contact support.</p>';
+} else {
+  const script = document.createElement('script');
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+  script.async = true;
+  script.defer = true;
+  document.head.appendChild(script);
+}
 
 // Swiper initialization
 var swiper = new Swiper(".mySwiper", {

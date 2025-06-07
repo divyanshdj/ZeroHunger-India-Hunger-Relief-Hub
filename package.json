@@ -11,5 +11,8 @@
   "description": "",
   "devDependencies": {
     "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "env": "^0.0.2"
   }
 }
