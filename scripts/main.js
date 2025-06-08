@@ -1,5 +1,4 @@
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-console.log("API KEY:", apiKey); 
 if (!apiKey) {
   document.getElementById('map').innerHTML = '<p>Error: Unable to load map. Please contact support.</p>';
 } else {
@@ -58,6 +57,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-console.log("ENV:", import.meta.env);
-console.log("API KEY:", import.meta.env.VITE_GOOGLE_MAPS_API_KEY);
