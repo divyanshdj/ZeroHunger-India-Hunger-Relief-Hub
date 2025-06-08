@@ -1,14 +1,3 @@
-const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-if (!apiKey) {
-  document.getElementById('map').innerHTML = '<p>Error: Unable to load map. Please contact support.</p>';
-} else {
-  const script = document.createElement('script');
-  script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
-  script.async = true;
-  script.defer = true;
-  document.head.appendChild(script);
-}
-
 // Swiper initialization
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
@@ -57,3 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Google Maps initialization
+const script = document.createElement('script');
+script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao&callback=initMap`;
+script.async = true;
+script.defer = true;
+document.head.appendChild(script);
